@@ -1,0 +1,62 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+|User|
+start
+
+:Request to login;
+|Service|
+-> (UserDetailsServiceImpl): Load User By Username
+|UserDetailsServiceImpl|
+<- (UserDetailsServiceImpl): UserDetails
+if (User exists?) then (yes)
+  :Create UserDetailsImpl;
+  -> (JwtUtil): Generate Token
+  <- (JwtUtil): Token
+  -> (AuthService): Login Response
+else (no)
+  -> |User| : Respond with error
+  stop
+endif
+<- (AuthService): Login Response
+
+|User|
+:Request to get all routes;
+|Service|
+-> (RouteServiceImpl): Get All Routes
+<- (RouteServiceImpl): List of Routes
+
+|User|
+:Request to get coordinates;
+|Service|
+-> (ClockServiceImpl): Get Coordinates
+<- (ClockServiceImpl): List of Coordinates
+
+|User|
+:Request to register measurement;
+|Service|
+-> (MeasurementServiceImpl): Register Measurement
+<- (MeasurementServiceImpl): Success/Failure
+
+|User|
+:Request to get all measurements;
+|Service|
+-> (MeasurementServiceImpl): Get All Measurements
+<- (MeasurementServiceImpl): List of Measurements
+
+|User|
+:Request to update measurement value;
+|Service|
+-> (MeasurementServiceImpl): Update Measurement Value
+<- (MeasurementServiceImpl): Success/Failure
+
+|User|
+:Request to delete measurement;
+|Service|
+-> (MeasurementServiceImpl): Delete Measurement
+
+
+|User|
+stop
+
+@enduml

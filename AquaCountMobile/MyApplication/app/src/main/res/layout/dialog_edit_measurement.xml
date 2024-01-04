@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/counterId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Counter ID"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:id="@+id/routeId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Route ID"
+        android:textColor="#5D9BDA"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/clockId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Clock Id"
+        android:textColor="#5D9BDA"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Value"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/timestamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Timestamp"
+        android:textColor="#5D9BDA"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/measurementId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Measurement Id"
+        android:textColor="#5D9BDA"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

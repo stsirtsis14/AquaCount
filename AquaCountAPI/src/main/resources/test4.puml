@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+actor User
+actor Administrator
+actor System
+
+usecase "Login" as UC_Login
+usecase "View Clock Information" as UC_ViewClock
+usecase "Add Route" as UC_AddRoute
+usecase "Delete Measurement" as UC_DeleteMeasurement
+
+User --> UC_Login
+User --> UC_ViewClock
+Administrator --> UC_AddRoute
+User --> UC_DeleteMeasurement
+
+UC_Login --> (AuthService)
+UC_ViewClock --> (ClockService)
+UC_AddRoute --> (RouteService)
+UC_DeleteMeasurement --> (MeasurementService)
+
+(CounterMeasurementsService) --> UC_ViewClock
+@enduml

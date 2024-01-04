@@ -1,0 +1,76 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class CountersEntity {
+    - counterid: Long
+    - firstName: String
+    - lastName: String
+    - username: String
+    - password: String
+    - authority: String = "User"
+
+    + CountersEntity()
+    + CountersEntity(Long, String, String, String, String, String)
+    + getCounterid(): Long
+    + setCounterid(Long)
+    + getFirstName(): String
+    + setFirstName(String)
+    + getLastName(): String
+    + setLastName(String)
+    + getUsername(): String
+    + setUsername(String)
+    + getPassword(): String
+    + setPassword(String)
+    + getAuthority(): String
+    + setAuthority(String)
+}
+
+class ClockEntity {
+    - clockid: Long
+    - routeid: Long
+    - coordinates: String
+
+    + ClockEntity()
+    + ClockEntity(Long, Long, String)
+    + getClockid(): Long
+    + setClockid(Long)
+    + getRouteid(): Long
+    + setRouteid(Long)
+    + getCoordinates(): String
+    + setCoordinates(String)
+}
+
+class MeasurementEntity {
+    - id: Long
+    - clockid: Long
+    - value: String
+    - timestamp: Timestamp
+
+    + MeasurementEntity()
+    + MeasurementEntity(Long, Long, String, Timestamp)
+    + getClockid(): Long
+    + setClockid(Long)
+    + getValue(): String
+    + setValue(String)
+    + getTimestamp(): Timestamp
+    + setTimestamp(Timestamp)
+}
+
+class RouteEntity {
+    - routeid: Long
+    - counterid: Long
+
+    + RouteEntity()
+    + RouteEntity(Long, Long)
+    + getRouteid(): Long
+    + setRouteid(Long)
+    + getCounterid(): Long
+    + setCounterid(Long)
+}
+
+CountersEntity --|{ RouteEntity
+RouteEntity --|{ CountersEntity
+ClockEntity --|{ MeasurementEntity
+MeasurementEntity --|{ ClockEntity
+
+@enduml

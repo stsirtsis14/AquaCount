@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+
+!define RECTANGLE class
+!define DATABASE database
+
+package "Application" {
+  [Web Browser]
+}
+
+package "Controller" {
+  [CountersController]
+  [RouteController]
+  [ClocksController]
+  [MeasurementController]
+}
+
+package "Service" {
+  [UserDetailsServiceImpl]
+  [RouteServiceImpl]
+  [ClockServiceImpl]
+  [MeasurementServiceImpl]
+  [CounterServiceImpl]
+  [AuthService]
+  [JwtUtil]
+}
+
+database "Database" {
+  [CountersRepository]
+  [ClocksRepository]
+  [MeasurementRepository]
+  [RouteRepository]
+  [CounterMeasurementsRepository]
+}
+
+[Web Browser] --> [CountersController]
+[Web Browser] --> [RouteController]
+[Web Browser] --> [ClocksController]
+[Web Browser] --> [MeasurementController]
+
+[CountersController] --> [AuthService]
+[CountersController] --> [JwtUtil]
+[CountersController] --> [CounterServiceImpl]
+[RouteController] --> [RouteServiceImpl]
+[ClocksController] --> [ClockServiceImpl]
+[MeasurementController] --> [MeasurementServiceImpl]
+[MeasurementController] --> [CounterMeasurementsRepository]
+[AuthService] --> [UserDetailsServiceImpl]
+[AuthService] --> [JwtUtil]
+
+[UserDetailsServiceImpl] --> [CountersRepository]
+[RouteServiceImpl] --> [RouteRepository]
+[ClockServiceImpl] --> [ClocksRepository]
+[MeasurementServiceImpl] --> [MeasurementRepository]
+[CounterServiceImpl] --> [CountersRepository]
+
+@enduml

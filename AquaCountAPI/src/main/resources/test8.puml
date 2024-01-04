@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+actor Admin
+
+package "Use Cases" {
+  usecase "Login"
+  usecase "Logout"
+  usecase "Manage Counters"
+  usecase "Manage Routes"
+  usecase "Manage Clocks"
+  usecase "Manage Measurements"
+}
+
+Admin --> "Login"
+"Login" --> "Logout"
+Admin --> "Manage Counters"
+Admin --> "Manage Routes"
+Admin --> "Manage Clocks"
+Admin --> "Manage Measurements"
+@enduml

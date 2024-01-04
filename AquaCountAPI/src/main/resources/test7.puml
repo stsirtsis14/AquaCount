@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/state-diagram
+
+[*] --> Unauthenticated
+
+state Unauthenticated {
+  [*] --> Idle
+  Idle --> LoggingIn : login request
+  LoggingIn --> Idle : login success
+  LoggingIn --> Unauthenticated : login failure
+}
+
+state Idle {
+  [*] --> Active : user interaction
+}
+
+state Active {
+  Active --> Idle : logout
+}
+
+state Authenticated {
+  [*] --> Active : user interaction
+  Active --> Idle : logout
+}
+
+Unauthenticated --> [*]
+Idle --> Authenticated : authentication success
+@enduml

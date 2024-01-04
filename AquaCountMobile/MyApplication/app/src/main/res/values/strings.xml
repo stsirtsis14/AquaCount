@@ -1,12 +1,26 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="back">Back</string>
-    <string name="welcome_to_aquacount">Welcome to AquaCount</string>
-    <string name="Submit">Submit</string>
-    <string name="id">id</string>
-    <string name="passwd">passWd</string>
+    <string name="app_name">AquaCount</string>
+    <string name="welcome_to_aquacount">Welcome to Aquacount</string>
     <string name="login">Login</string>
-    <string name="success">SUCCESS</string>
+    <string name="passwd">passwd</string>
+    <string name="Submit">Submit</string>
+    <string name="id">username</string>
     <string name="new_measurement">New Measurement</string>
-    <string name="add">Add</string>
+    <string name="add">ADD</string>
+    <string name="logout">Logout</string>
+    <string name="select" />
+    <string name="Select" />
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="maps">Maps</string>
+    <string name="update_measurement">Update Measurement</string>
+    <string name="new_measurement1">New Measurement</string>
+    <string name="enter_route_id">Enter route id</string>
+    <string name="route_id" />
+    <string name="Enter">Button</string>
+    <string name="displayRoute">Button</string>
+    <string name="display_route">Display Route</string>
+    <string name="welcome_to_Aquacount" />
+    <string name="username" />
+    <string name="clock_id_spinner_label">Select Clock ID</string>
+
 </resources>

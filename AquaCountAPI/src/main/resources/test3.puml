@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor User
+participant AuthServiceImpl
+participant UserCredentials
+participant AuthenticationManager
+participant CountersRepository
+participant JwtUtil
+participant UserDetailsImpl
+participant LoginResponseWrapper
+participant CountersEntity
+
+User -> AuthServiceImpl: Request Login
+activate AuthServiceImpl
+
+AuthServiceImpl -> AuthenticationManager: Authenticate
+activate AuthenticationManager
+AuthenticationManager -> UserCredentials: Get Username and Password
+activate UserCredentials
+UserCredentials --> AuthenticationManager: Username, Password
+deactivate UserCredentials
+
+AuthenticationManager -> CountersRepository: Find By Username
+activate CountersRepository
+CountersRepository --> AuthenticationManager: CountersEntity
+deactivate CountersRepository
+
+AuthenticationManager -> JwtUtil: Generate Token
+activate JwtUtil
+JwtUtil -> UserDetailsImpl: Generate UserDetails
+activate UserDetailsImpl
+UserDetailsImpl -> CountersEntity: Create UserDetails
+activate CountersEntity
+CountersEntity --> UserDetailsImpl: UserDetails
+deactivate CountersEntity
+UserDetailsImpl --> JwtUtil: UserDetails
+deactivate UserDetailsImpl
+JwtUtil --> AuthenticationManager: Token
+deactivate JwtUtil
+
+AuthenticationManager --> AuthServiceImpl: Token
+deactivate AuthenticationManager
+
+AuthServiceImpl -> LoginResponseWrapper: Create LoginResponseWrapper
+activate LoginResponseWrapper
+LoginResponseWrapper --> AuthServiceImpl: ResponseWrapper
+deactivate LoginResponseWrapper
+
+AuthServiceImpl --> User: Login Response
+deactivate AuthServiceImpl
+@enduml

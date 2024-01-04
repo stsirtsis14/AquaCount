@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/drop">
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="178dp"
         android:layout_height="25dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="608dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="636dp"
         android:text="@string/new_measurement"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#171616"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -18,8 +26,8 @@
         android:id="@+id/editTextNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="57dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:hint="@string/new_measurement"
         android:inputType="number"
@@ -27,13 +35,79 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+
+    <!--    <EditText-->
+<!--        android:id="@+id/editTextNumber2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="80dp"-->
+<!--        android:layout_marginBottom="30dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="clock ID"-->
+<!--        android:inputType="number"-->
+<!--        android:minHeight="48dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/editTextNumber"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="147dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="164dp"
+        android:background="#C3C6C6"
+        android:onClick="insertRecords"
         android:text="@string/add"
+        android:textColor="#004D40"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
-</android.support.constraint.ConstraintLayout>
+
+    <Spinner
+        android:id="@+id/spinnerClockIds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="236dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/clock_id_spinner_label"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="178dp"
+        android:layout_marginBottom="168dp"
+        android:background="#C3C6C6"
+        android:onClick="retrieveRecordsAndPost"
+        android:text="SEND"
+        android:textColor="#004D40"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="154dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="102dp"
+        android:minHeight="47dp"
+        android:text="Clock ID"
+        android:textColor="#171616"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerClockIds"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
