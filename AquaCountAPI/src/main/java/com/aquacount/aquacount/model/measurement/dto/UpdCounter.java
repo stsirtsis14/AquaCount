@@ -1,21 +1,16 @@
 package com.aquacount.aquacount.model.measurement.dto;
 
-import jakarta.persistence.Column;
-
-public class RegisterCounter {
-    private Long counterid;
+public class UpdCounter {
     private String firstName;
     private String lastName;
     private String username;
-    private String password;
     private String authority;
 
-    public Long getCounterid() {
-        return counterid;
-    }
-
-    public void setCounterid(Long counterid) {
-        this.counterid = counterid;
+    public UpdCounter(String firstName, String lastName, String username, String authority) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.authority = authority;
     }
 
     public String getFirstName() {
@@ -40,14 +35,6 @@ public class RegisterCounter {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getAuthority() {

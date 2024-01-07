@@ -20,4 +20,6 @@ public interface ClockService {
     void deleteClock(Long clockid);
 
     void addClock(RegisterClockRequest registerClockRequest);
+
+    void updateClock(Long clockid,Long newRouteid);
 }

@@ -14,4 +14,6 @@ public interface RouteService {
     public List<RouteEntity> getRoutesFromCounterid(Long counterid);
 
     void addRoute(RegisterRouteRequest registerRouteRequest);
+
+    void updateRoute(Long routeid,Long newCounterid);
 }

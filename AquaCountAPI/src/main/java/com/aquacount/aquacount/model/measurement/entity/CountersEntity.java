@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class CountersEntity {
 
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        //@GeneratedValue(strategy = GenerationType.AUTO)
         @Column(nullable = false,updatable = false)
         private Long counterid;
         @Column(nullable = false)

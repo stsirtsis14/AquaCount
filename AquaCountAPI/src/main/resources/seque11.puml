@@ -1,0 +1,69 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor User
+participant RouteServiceImpl
+participant RouteRepository
+participant ClockServiceImpl
+participant ClocksRepository
+participant MeasurementServiceImpl
+participant MeasurementRepository
+
+User -> RouteServiceImpl: Request to Manage Routes
+activate RouteServiceImpl
+RouteServiceImpl --> RouteRepository: Get All Routes
+activate RouteRepository
+RouteRepository --> RouteServiceImpl: List of RouteEntities
+deactivate RouteRepository
+RouteServiceImpl --> User: List of Routes
+deactivate RouteServiceImpl
+
+User -> ClockServiceImpl: Request to Manage Clocks
+activate ClockServiceImpl
+ClockServiceImpl --> ClocksRepository: Get All Clocks
+activate ClocksRepository
+ClocksRepository --> ClockServiceImpl: List of ClockEntities
+deactivate ClocksRepository
+ClockServiceImpl --> User: List of Clocks
+deactivate ClockServiceImpl
+
+User -> MeasurementServiceImpl: Request to Manage Measurements
+activate MeasurementServiceImpl
+MeasurementServiceImpl --> MeasurementRepository: Get All Measurements
+activate MeasurementRepository
+MeasurementRepository --> MeasurementServiceImpl: List of MeasurementEntities
+deactivate MeasurementRepository
+MeasurementServiceImpl --> User: List of Measurements
+deactivate MeasurementServiceImpl
+
+User -> MeasurementServiceImpl: Request to Register Measurement
+activate MeasurementServiceImpl
+MeasurementServiceImpl --> MeasurementRepository: Save MeasurementEntity
+activate MeasurementRepository
+MeasurementRepository --> MeasurementServiceImpl: Saved MeasurementEntity
+deactivate MeasurementRepository
+MeasurementServiceImpl --> User: Success Response
+deactivate MeasurementServiceImpl
+
+User -> MeasurementServiceImpl: Request to Update Measurement Value
+activate MeasurementServiceImpl
+MeasurementServiceImpl --> MeasurementRepository: Update MeasurementEntity
+activate MeasurementRepository
+MeasurementRepository --> MeasurementServiceImpl: Updated MeasurementEntity
+deactivate MeasurementRepository
+MeasurementServiceImpl --> User: Success Response
+deactivate MeasurementServiceImpl
+
+User -> MeasurementServiceImpl: Request to Delete Measurement
+activate MeasurementServiceImpl
+MeasurementServiceImpl --> MeasurementRepository: Delete MeasurementEntity
+activate MeasurementRepository
+MeasurementRepository --> MeasurementServiceImpl: Deleted MeasurementEntity
+deactivate MeasurementRepository
+MeasurementServiceImpl --> User: Success Response
+deactivate MeasurementServiceImpl
+
+@enduml
+
+
+@enduml

@@ -33,7 +33,7 @@ public class RouteController {
         List<RouteEntity> routes = routeService.getRoutesFromCounterid(counterid);
         return ResponseEntity.ok(routes);
     }
-    @DeleteMapping("/{routeId}")
+    @DeleteMapping("/delete/{routeId}")
     public ResponseEntity<Void> deleteRoute(@PathVariable Long routeId){
         routeService.deleteRoute(routeId);
         return ResponseEntity.ok().build();
@@ -42,7 +42,14 @@ public class RouteController {
     @PostMapping("/register")
     public ResponseEntity<Void> registerRoute(@RequestBody RegisterRouteRequest registerRouteRequest) {
         // Log the received JSON payload
+        System.out.println("Received JSON payload: " + registerRouteRequest);
         routeService.addRoute(registerRouteRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PutMapping("/update/{routeid}")
+    public  ResponseEntity<Void> updateRoute(@PathVariable Long routeid , Long newCounterid){
+       routeService.updateRoute(routeid,newCounterid);
+       return ResponseEntity.ok().build();
     }
 }

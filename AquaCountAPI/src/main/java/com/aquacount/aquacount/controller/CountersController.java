@@ -60,4 +60,16 @@ public class CountersController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
     }
+
+    @PutMapping("/update/{counterid}")
+    public  ResponseEntity<Void> updateCounter(@PathVariable Long counterid, @RequestBody UpdCounter updatedCounter){
+        counterService.updateCounter(counterid,updatedCounter);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/delete/{counterid}")
+    public ResponseEntity<Void> deleteCounter(@PathVariable Long counterid){
+        counterService.deleteCounter(counterid);
+        return ResponseEntity.ok().build();
+    }
 }

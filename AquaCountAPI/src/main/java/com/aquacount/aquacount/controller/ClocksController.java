@@ -62,5 +62,9 @@ public class ClocksController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
     }
-
+    @PutMapping("/update/{clockid}")
+    public ResponseEntity<Void> updateClock(@PathVariable Long clockid,@RequestBody Long newRouteid){
+        clockService.updateClock(clockid,newRouteid);
+        return ResponseEntity.ok().build();
+    }
 }

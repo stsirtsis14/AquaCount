@@ -10,6 +10,7 @@ import com.aquacount.aquacount.repository.MeasurementRepository;
 import com.aquacount.aquacount.service.measurement.ClockService;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -76,6 +77,13 @@ public class ClockServiceImpl implements ClockService {
         }
     }
 
+    public void updateClock(Long clockid,Long newRouteid){
+        ClockEntity existingClock = clockRepository.findById(clockid).orElse(null);
 
+        if (existingClock != null) {
+            existingClock.setRouteid(newRouteid);
+            clockRepository.save(existingClock);
+        }
+    }
 
 }

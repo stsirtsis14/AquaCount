@@ -5,6 +5,7 @@ import com.aquacount.aquacount.model.measurement.dto.RegisterClockRequest;
 import com.aquacount.aquacount.model.measurement.dto.RegisterRoute;
 import com.aquacount.aquacount.model.measurement.dto.RegisterRouteRequest;
 import com.aquacount.aquacount.model.measurement.entity.ClockEntity;
+import com.aquacount.aquacount.model.measurement.entity.MeasurementEntity;
 import com.aquacount.aquacount.model.measurement.entity.RouteEntity;
 import com.aquacount.aquacount.repository.RouteRepository;
 import com.aquacount.aquacount.service.measurement.RouteService;
@@ -41,6 +42,15 @@ public class RouteServiceImpl implements RouteService {
             routeEntity.setRouteid(registerRoute.getRouteid());
             routeEntity.setCounterid(registerRoute.getCounterid());
             routeRepository.save(routeEntity);
+        }
+    }
+
+    public void updateRoute(Long routeid, Long newCounterid){
+        RouteEntity existingRoute = routeRepository.findById(routeid).orElse(null);
+
+        if (existingRoute != null) {
+            existingRoute.setCounterid(newCounterid);
+            routeRepository.save(existingRoute);
         }
     }
 }

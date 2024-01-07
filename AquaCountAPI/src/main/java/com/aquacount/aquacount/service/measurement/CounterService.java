@@ -2,6 +2,7 @@ package com.aquacount.aquacount.service.measurement;
 
 import com.aquacount.aquacount.model.measurement.dto.FindCounter;
 import com.aquacount.aquacount.model.measurement.dto.RegisterCounterRequest;
+import com.aquacount.aquacount.model.measurement.dto.UpdCounter;
 import com.aquacount.aquacount.model.measurement.entity.CountersEntity;
 
 
@@ -16,4 +17,6 @@ public interface CounterService {
     void deleteCounter(Long counterid);
 
     void addCounter(RegisterCounterRequest registerCounterRequest);
+
+    void updateCounter(Long counterid, UpdCounter updatedCounter);
 }
