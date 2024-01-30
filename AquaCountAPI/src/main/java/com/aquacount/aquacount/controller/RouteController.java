@@ -48,7 +48,7 @@ public class RouteController {
     }
 
     @PutMapping("/update/{routeid}")
-    public  ResponseEntity<Void> updateRoute(@PathVariable Long routeid , Long newCounterid){
+    public  ResponseEntity<Void> updateRoute(@PathVariable Long routeid ,@RequestBody Long newCounterid){
        routeService.updateRoute(routeid,newCounterid);
        return ResponseEntity.ok().build();
     }

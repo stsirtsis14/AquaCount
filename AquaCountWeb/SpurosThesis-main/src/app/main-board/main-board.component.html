@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <h1>AquaCounter</h1>
+  <div class="spacer"></div>
+  <span class="toolbar-text">User</span>
+  <button mat-raised-button class="toolbar-button" (click)="onLogoutClicked()">Log Out</button>
+</mat-toolbar>
+<div class="list-container">
+  <mat-toolbar>
+    <button mat-raised-button (click)="onTableClicked(1)" class="display-button">Routes</button>
+    <button mat-raised-button (click)="onTableClicked(2)" class="display-button">Counters</button>
+    <button mat-raised-button (click)="onTableClicked(3)" class="display-button">Clocks</button>
+  </mat-toolbar>
+</div>
+<div>
+ <app-routes *ngIf="tableIndex === 1"></app-routes>
+ <app-counters *ngIf="tableIndex === 2"></app-counters>
+ <app-clocks *ngIf="tableIndex === 3"></app-clocks>
+</div>

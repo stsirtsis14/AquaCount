@@ -14,6 +14,8 @@ public interface MeasurementService {
 
     List getAllMeasurements();
 
+    List getAllMeasurementsOfClock(Long clockid);
+
     List getAllMeasurementsByCounter(Long counterid);
 
     void updateMeasurement(Long id,MeasurementEntity updatedMeasurement);

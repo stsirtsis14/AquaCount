@@ -1,0 +1,34 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- CounterId Column -->
+  <ng-container matColumnDef="clockId">
+    <th mat-header-cell *matHeaderCellDef>Clock ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.clockid }}</td>
+  </ng-container>
+
+  <!-- firstName Column -->
+  <ng-container matColumnDef="routeId">
+    <th mat-header-cell *matHeaderCellDef>Route ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.routeid }}</td>
+  </ng-container>
+
+  <!-- lastName Column -->
+  <ng-container matColumnDef="coordinates">
+    <th mat-header-cell *matHeaderCellDef>coordinates</th>
+    <td mat-cell *matCellDef="let element">{{ element.coordinates }}</td>
+  </ng-container>
+
+  <!-- actions -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button (click)="onDeleteClicked(element)"><mat-icon>delete</mat-icon></button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<button mat-raised-button color="primary">+Add</button>
+

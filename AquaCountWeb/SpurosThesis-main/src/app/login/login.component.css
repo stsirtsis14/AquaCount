@@ -1,0 +1,20 @@
+.login-container{
+  width: 500px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(235, 235, 235);
+}
+
+.card-title {
+  padding-bottom: 50px;
+  color:rgb(20, 49, 219)
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20%;
+}

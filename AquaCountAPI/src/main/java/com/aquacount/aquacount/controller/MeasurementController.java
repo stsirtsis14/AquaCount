@@ -78,4 +78,10 @@ public class MeasurementController {
         List<MeasurementEntity> measurements = measurementRepository.findByCounterid(counterId);
         return new ResponseEntity<>(measurements, HttpStatus.OK);
     }
+
+    @GetMapping("/measurementsOfClock/{clockid}")
+    public ResponseEntity<List<MeasurementEntity>> getMeasurementsOfClock(@PathVariable Long clockid){
+        List<MeasurementEntity> measurements = measurementRepository.findByClockid(clockid);
+        return new ResponseEntity<>(measurements, HttpStatus.OK);
+    }
 }

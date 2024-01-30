@@ -1,0 +1,20 @@
+<div class="card-container">
+  <mat-card class="login-container">
+    <mat-card-header>
+      <mat-card-title class="card-title">
+        <h1>AquaCount</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Username" [(ngModel)]="username" required />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" [(ngModel)]="password" type="password" required />
+      </mat-form-field>
+    </mat-card-actions>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

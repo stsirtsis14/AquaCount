@@ -1,0 +1,20 @@
+.toolbar-button {
+  margin-left: 50px;
+  margin-right: 10px;
+}
+
+.toolbar-text {
+  font-size: large;
+}
+
+.spacer {
+  margin-right: 75%;
+}
+
+.list-container {
+  background-color: rgb(212, 208, 208);
+}
+
+.display-button {
+  margin-right: 50px;
+}

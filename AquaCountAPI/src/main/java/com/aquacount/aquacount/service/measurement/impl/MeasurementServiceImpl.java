@@ -43,6 +43,8 @@ public class MeasurementServiceImpl implements MeasurementService {
         return measurementRepository.findAll();
     }
 
+    public List<MeasurementEntity> getAllMeasurementsOfClock(Long clockid){return measurementRepository.findByClockid(clockid);}
+
     public List<MeasurementEntity> getAllMeasurementsByCounter(Long counterid){
         return measurementRepository.findByCounterid(counterid);
     }

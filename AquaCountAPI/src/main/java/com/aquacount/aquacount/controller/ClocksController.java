@@ -42,7 +42,7 @@ public class ClocksController {
         return ResponseEntity.ok(clocks);
     }
 
-    @DeleteMapping("deleteClock/{clockid}")
+    @DeleteMapping("/deleteClock/{clockid}")
     public ResponseEntity<Void> deleteClock(@PathVariable Long clockid) {
         clockService.deleteClock(clockid);
         return ResponseEntity.ok().build();
